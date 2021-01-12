@@ -5,6 +5,10 @@ const enlargePhoto = document.querySelector("img");
 enlargePhoto.addEventListener("mouseover", function (event) {
   event.target.style.height = "20rem";
 });
+
+enlargePhoto.addEventListener('click', function(event){
+    event.preventDefault();
+})
 // 2
 const highlight = document.querySelector("h2");
 
@@ -63,6 +67,7 @@ el.onwheel = zoom;
 highlight.addEventListener("copy", function () {
   alert("You copied image.");
 });
+
 // 10
 
 const imgOpacity = document.querySelectorAll("img");
@@ -72,13 +77,17 @@ imgOpacity.forEach((item) => {
     item.style.opacity = "0.5";
   });
 });
-
+imgOpacity.forEach((item) => {
+    item.addEventListener('click',function(event){
+        event.preventDefault();
+    })
+})
 // stop nav links
 const navLinks = document.getElementsByTagName("nav a");
 
-navLinks.forEach((item) =>{
-    item.addEventListener('click', function(event){
+navLinks.forEach((item) => {
+  item.addEventListener("click", function (event) {
     navLinks.innerHTML += "Sorry can't do that!";
     event.preventDefault();
-    });
-})
+  });
+});
