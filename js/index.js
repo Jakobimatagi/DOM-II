@@ -1,11 +1,11 @@
 // Your code goes here
-
+// 1 
 const enlargePhoto = document.querySelector('img');
 
 enlargePhoto.addEventListener("mouseover", function(event){
-    event.target.style.width = "75%";
+    event.target.style.height = "60rem";
 });
-
+// 2
 const highlight = document.querySelector("h2");
 
 document.addEventListener("keydown", function(event){
@@ -13,16 +13,62 @@ document.addEventListener("keydown", function(event){
         highlight.style.color = "orange";
     }
 });
-
-highlight.addEventListener("dblclick", function(event){
+// 3
+highlight.addEventListener("dblclick", function(){
     highlight.style.color = "black";
 })
-
-window.addEventListener('load', (event) =>{
+// 4
+window.addEventListener('load', () =>{
     console.log("Page is fully loaded.")
 })
-
+// 5
 const alertHello = document.querySelector('h1');
 
 alertHello.addEventListener('click', function(){ alert("Hello")});
+// 6
+const paraFlash = document.querySelector('p');
 
+paraFlash.addEventListener('mouseout', function(event){
+    event.target.style.color = "purple";
+})
+// 7
+
+document.addEventListener("keypress", function(){
+    
+        highlight.style.backgroundColor = "red";
+    
+})
+// 8
+
+paraFlash.addEventListener('wheel', zoom);
+
+function zoom(event) {
+    event.preventDefault();
+  
+    scale += event.deltaY * -0.01;
+  
+    // Restrict scale
+    scale = Math.min(Math.max(.125, scale), 4);
+  
+    // Apply scale transform
+    el.style.transform = `scale(${scale})`;
+  }
+  
+  let scale = 1;
+  const el = document.querySelector('p');
+  el.onwheel = zoom;
+
+//  9
+
+highlight.addEventListener("copy", function(){
+    alert("You copied image.")
+})
+// 10
+
+const imgOpacity = document.querySelectorAll('img');
+
+imgOpacity.forEach(item => {
+    item.addEventListener('mousemove', () => {
+       item.style.opacity = '0.5';
+    })
+ })
